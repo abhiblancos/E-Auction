@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using DomainModel;
-using DomainModel.Model;
+using EAuction.Domain.Model;
+using EAuction.Domain.Seller;
+using EAuction.Domain.Product;
+using EAuction.Domain.Buyer;
 using System;
 using System.Threading.Tasks;
+using EAuction.Service;
 
-namespace DataAccessSqliteProvider
+namespace EAuction.DataAccessSqlite.Provider
 {
     public class DataAccessSqliteProvider : IDataAccessProvider
     {
@@ -24,7 +28,7 @@ namespace DataAccessSqliteProvider
 
         //E-Auction Methods Start here
 
-        public async Task<SellerInfo> AddSeller(SellerInfo sellerRecord)
+        public async Task<Seller> AddSeller(Seller sellerRecord)
         {
 
             _context.SellerInfo.Add(sellerRecord);
@@ -32,14 +36,14 @@ namespace DataAccessSqliteProvider
             return sellerRecord;
         }
 
-        public async Task<List<SellerInfo>> GetAllSeller()
+        public async Task<List<Seller>> GetAllSeller()
         {
 
             return await _context.SellerInfo
                               .ToListAsync();
         }
 
-        public async Task<ProductInfo> AddProduct(ProductInfo productRecord)
+        public async Task<Product> AddProduct(Product productRecord)
         {
 
             _context.ProductInfo.Add(productRecord);
@@ -47,14 +51,14 @@ namespace DataAccessSqliteProvider
             return productRecord;
         }
 
-        public async Task<List<ProductInfo>> GetAllProducts()
+        public async Task<List<Product>> GetAllProducts()
         {
 
             return await _context.ProductInfo.Where(a => a.IsDeleted == false)
                               .ToListAsync();
         }
 
-        public async Task<BuyerInfo> AddBuyer(BuyerInfo buyerRecord)
+        public async Task<Buyer> AddBuyer(Buyer buyerRecord)
         {
 
             _context.BuyerInfo.Add(buyerRecord);
@@ -62,7 +66,7 @@ namespace DataAccessSqliteProvider
             return buyerRecord;
         }
 
-        public async Task<List<BuyerInfo>> GetAllBuyer()
+        public async Task<List<Buyer>> GetAllBuyer()
         {
 
             return await _context.BuyerInfo
@@ -77,13 +81,13 @@ namespace DataAccessSqliteProvider
             await _context.SaveChangesAsync();
         }
 
-        public async Task<ProductInfo> GetProductById(int productId)
+        public async Task<Product> GetProductById(int productId)
         {
             return await _context.ProductInfo
                                .FirstAsync(t => t.ProductId == productId && t.IsDeleted == false) ;
         }
 
-        public async Task<List<BuyerInfo>> GetAllBidsByProductId(int productId)
+        public async Task<List<Buyer>> GetAllBidsByProductId(int productId)
         {
             return await _context.BuyerInfo.Where(a=>a.ProductId==productId)
                               .ToListAsync();

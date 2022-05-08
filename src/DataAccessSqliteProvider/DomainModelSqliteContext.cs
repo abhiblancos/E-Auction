@@ -1,9 +1,12 @@
 using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using DomainModel.Model;
+using EAuction.Domain.Seller;
+using EAuction.Domain.Buyer;
+using EAuction.Domain.Model;
+using EAuction.Domain.Product;
 
-namespace DataAccessSqliteProvider
+namespace EAuction.DataAccessSqlite.Provider
 {
     // >dotnet ef migration add testMigration
     public class DomainModelSqliteContext : DbContext
@@ -14,18 +17,18 @@ namespace DataAccessSqliteProvider
         public DbSet<DataEventRecord> DataEventRecords { get; set; }
 
         public DbSet<SourceInfo> SourceInfos { get; set; }
-        public DbSet<SellerInfo> SellerInfo { get; set; }
-        public DbSet<BuyerInfo> BuyerInfo { get; set; }
-        public DbSet<ProductInfo> ProductInfo { get; set; }
+        public DbSet<Seller> SellerInfo { get; set; }
+        public DbSet<Buyer> BuyerInfo { get; set; }
+        public DbSet<Product> ProductInfo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<DataEventRecord>().HasKey(m => m.DataEventRecordId);
             builder.Entity<SourceInfo>().HasKey(m => m.SourceInfoId);
 
-            builder.Entity<SellerInfo>().HasKey(m => m.SellerId);
-            builder.Entity<BuyerInfo>().HasKey(m => m.BuyerId);
-            builder.Entity<ProductInfo>().HasKey(m => m.ProductId);
+            builder.Entity<Seller>().HasKey(m => m.SellerId);
+            builder.Entity<Buyer>().HasKey(m => m.BuyerId);
+            builder.Entity<Product>().HasKey(m => m.ProductId);
 
             // shadow properties
             builder.Entity<DataEventRecord>().Property<DateTime>("UpdatedTimestamp");

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DomainModel.Model
+namespace EAuction.Domain.Model
 {
     public class SourceInfo
     {

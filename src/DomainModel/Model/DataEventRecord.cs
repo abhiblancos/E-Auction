@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace DomainModel.Model
+namespace EAuction.Domain.Model
 {
     public class DataEventRecord
     {
