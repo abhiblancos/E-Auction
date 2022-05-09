@@ -23,7 +23,7 @@ namespace EAuction.API.Controllers
         }
 
         /// <summary>
-        /// Get All seller
+        /// Get All seller information
         /// </summary>
         /// <returns></returns>
         [HttpGet]
