@@ -58,7 +58,7 @@ namespace EAuction.DataAccessSqlite.Provider
                               .ToListAsync();
         }
 
-        public async Task<Buyer> AddBuyer(Buyer buyerRecord)
+        public async Task<BuyerInfo> AddBuyer(BuyerInfo buyerRecord)
         {
 
             _context.BuyerInfo.Add(buyerRecord);
@@ -66,7 +66,7 @@ namespace EAuction.DataAccessSqlite.Provider
             return buyerRecord;
         }
 
-        public async Task<List<Buyer>> GetAllBuyer()
+        public async Task<List<BuyerInfo>> GetAllBuyer()
         {
 
             return await _context.BuyerInfo
@@ -87,7 +87,7 @@ namespace EAuction.DataAccessSqlite.Provider
                                .FirstAsync(t => t.ProductId == productId && t.IsDeleted == false) ;
         }
 
-        public async Task<List<Buyer>> GetAllBidsByProductId(int productId)
+        public async Task<List<BuyerInfo>> GetAllBidsByProductId(int productId)
         {
             return await _context.BuyerInfo.Where(a=>a.ProductId==productId)
                               .ToListAsync();

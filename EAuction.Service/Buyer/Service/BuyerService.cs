@@ -18,9 +18,9 @@ namespace EAuction.Service.BuyerService
 			_dataAccessProvider = dataAccessProvider;
 		}
 
-        public async Task<BuyerInfo> AddBuyer(BuyerInfo value)
+        public async Task<BuyerModels.BuyerInfo> AddBuyer(BuyerModels.BuyerInfo value)
         {
-            var buyerRecord = new Buyer
+            var buyerRecord = new Domain.Buyer.BuyerInfo
             {
                 Address = value.Address,
                 BidAmount = value.BidAmount,
@@ -39,7 +39,7 @@ namespace EAuction.Service.BuyerService
 
             var der = await _dataAccessProvider.AddBuyer(buyerRecord);
 
-            var result = new BuyerInfo
+            var result = new BuyerModels.BuyerInfo
             {
                 Address = der.Address,
                 BidAmount = der.BidAmount,
@@ -58,11 +58,11 @@ namespace EAuction.Service.BuyerService
             return result;
         }
 
-        public async Task<IEnumerable<BuyerInfo>> GetAllBuyer()
+        public async Task<IEnumerable<BuyerModels.BuyerInfo>> GetAllBuyer()
         {
             var data = await _dataAccessProvider.GetAllBuyer();
 
-            var results = data.Select(der => new BuyerInfo
+            var results = data.Select(der => new Domain.Buyer.BuyerInfo
             {
                 Address = der.Address,
                 BidAmount = der.BidAmount,
@@ -78,7 +78,7 @@ namespace EAuction.Service.BuyerService
                 BuyerId = der.BuyerId
             });
 
-            return results;
+            return (IEnumerable<BuyerModels.BuyerInfo>)results;
         }
     }
 }

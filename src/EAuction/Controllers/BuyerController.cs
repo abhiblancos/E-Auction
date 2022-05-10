@@ -9,7 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace EAuction.API.Controllers
+namespace EAuction.API.Write.Controllers
 {
     [Route("e-auction/api/v1/buyer/[controller]")]
     public class BuyerController : Controller
@@ -24,18 +24,6 @@ namespace EAuction.API.Controllers
         }
 
         /// <summary>
-        /// Returns list of all Buyer
-        /// </summary>
-        /// <returns></returns>
-        [ProducesResponseType(typeof(IEnumerable<BuyerInfo>),200)]
-        [HttpGet]
-        [Route("/getAllBuyer")]
-        public async Task<IActionResult> GetAllBuyer()
-        {
-            return Ok(await _buyerService.GetAllBuyer());
-        }
-
-        /// <summary>
         /// Place Bid
         /// </summary>
         /// <param name="value"></param>
@@ -44,7 +32,7 @@ namespace EAuction.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.Created)]
         [HttpPost]
         [Route("/buyer")]
-        public async Task<IActionResult> PlaceBid([FromBody] BuyerInfo value)
+        public async Task<IActionResult> PlaceBid([FromBody] Service.BuyerModels.BuyerInfo value)
         {
             if (!ModelState.IsValid)
             {

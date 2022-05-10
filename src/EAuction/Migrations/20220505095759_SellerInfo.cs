@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace EAuction.API.Migrations
+namespace EAuction.API.Write.Migrations
 {
     public partial class SellerInfo : Migration
     {

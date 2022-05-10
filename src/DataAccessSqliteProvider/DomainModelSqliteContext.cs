@@ -18,7 +18,7 @@ namespace EAuction.DataAccessSqlite.Provider
 
         public DbSet<SourceInfo> SourceInfos { get; set; }
         public DbSet<Seller> SellerInfo { get; set; }
-        public DbSet<Buyer> BuyerInfo { get; set; }
+        public DbSet<BuyerInfo> BuyerInfo { get; set; }
         public DbSet<Product> ProductInfo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -27,7 +27,7 @@ namespace EAuction.DataAccessSqlite.Provider
             builder.Entity<SourceInfo>().HasKey(m => m.SourceInfoId);
 
             builder.Entity<Seller>().HasKey(m => m.SellerId);
-            builder.Entity<Buyer>().HasKey(m => m.BuyerId);
+            builder.Entity<BuyerInfo>().HasKey(m => m.BuyerId);
             builder.Entity<Product>().HasKey(m => m.ProductId);
 
             // shadow properties

@@ -8,7 +8,7 @@ using EAuction.Service.ProductService;
 using EAuction.Service.SellerService;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EAuction.API.Controllers
+namespace EAuction.API.Write.Controllers
 {
     [Route("api/[controller]")]
     public class SellerController : Controller
@@ -20,17 +20,6 @@ namespace EAuction.API.Controllers
         {
             _sellerService = sellerService;            
             _bidService = bidService;
-        }
-
-        /// <summary>
-        /// Get All seller information
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("/getAllSeller")]
-        public async Task<IActionResult> GetAllSeller()
-        {
-            return Ok(await _sellerService.GetAllSeller());
         }
 
         /// <summary>

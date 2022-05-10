@@ -18,15 +18,15 @@ namespace EAuction.Service
 
         Task<List<Product>> GetAllProducts();
 
-        Task<Buyer> AddBuyer(Buyer buyerRecord);
+        Task<BuyerInfo> AddBuyer(BuyerInfo buyerRecord);
 
-        Task<List<Buyer>> GetAllBuyer();
+        Task<List<BuyerInfo>> GetAllBuyer();
 
         Task UpdateBid(int productId, string buyerEmailId, double newBidAmt);
 
         Task<Product> GetProductById(int productId);
 
-        Task<List<Buyer>> GetAllBidsByProductId(int productId);
+        Task<List<BuyerInfo>> GetAllBidsByProductId(int productId);
 
         Task<bool> ExistsProducts(long id);
         Task DeleteProduct(long productId);

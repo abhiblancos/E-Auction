@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace EAuction.API
+namespace EAuction.API.Write
 {
     public class Program
     {

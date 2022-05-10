@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{473E7822-72A4-4268-BEE5-17807D09B880}"
 EndProject
@@ -13,11 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.DataAccessSqliteProvider", "src\DataAccessSqliteProvider\EAuction.DataAccessSqliteProvider.csproj", "{E737764A-BF5C-4B57-A26A-885550B7F364}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.API", "src\EAuction\EAuction.API.csproj", "{AD3372BE-2A8A-467E-ABB7-65739E5265A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.API.Write", "src\EAuction\EAuction.API.Write.csproj", "{AD3372BE-2A8A-467E-ABB7-65739E5265A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.Domain", "src\DomainModel\EAuction.Domain.csproj", "{C621779A-DC48-4322-AAC9-A813A7002A42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAuction.Service", "EAuction.Service\EAuction.Service.csproj", "{A332860F-2387-4FEF-B974-D6A8147D76D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.Service", "EAuction.Service\EAuction.Service.csproj", "{A332860F-2387-4FEF-B974-D6A8147D76D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAuction.API.Read", "EAuction.API.Write\EAuction.API.Read.csproj", "{4C02E104-1750-4335-8CCF-9780F6BCD820}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{A332860F-2387-4FEF-B974-D6A8147D76D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A332860F-2387-4FEF-B974-D6A8147D76D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A332860F-2387-4FEF-B974-D6A8147D76D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C02E104-1750-4335-8CCF-9780F6BCD820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C02E104-1750-4335-8CCF-9780F6BCD820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C02E104-1750-4335-8CCF-9780F6BCD820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C02E104-1750-4335-8CCF-9780F6BCD820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{AD3372BE-2A8A-467E-ABB7-65739E5265A3} = {473E7822-72A4-4268-BEE5-17807D09B880}
 		{C621779A-DC48-4322-AAC9-A813A7002A42} = {473E7822-72A4-4268-BEE5-17807D09B880}
 		{A332860F-2387-4FEF-B974-D6A8147D76D9} = {473E7822-72A4-4268-BEE5-17807D09B880}
+		{4C02E104-1750-4335-8CCF-9780F6BCD820} = {473E7822-72A4-4268-BEE5-17807D09B880}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {275798F3-A1DA-4BC7-9033-46E4684FBD6C}

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace EAuction.API.Migrations
+namespace EAuction.API.Write.Migrations
 {
     [DbContext(typeof(DomainModelSqliteContext))]
     [Migration("20220505115010_BuyerInfo")]

@@ -4,9 +4,8 @@ using EAuction.DataAccessSqlite.Provider;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace EAuction.API.Migrations
+namespace EAuction.API.Write.Migrations
 {
     [DbContext(typeof(DomainModelSqliteContext))]
     [Migration("20220505095759_SellerInfo")]

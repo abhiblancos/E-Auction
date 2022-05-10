@@ -9,7 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace EAuction.API.Controllers
+namespace EAuction.API.Write.Controllers
 {
     [Route("e-auction/api/v1/bid/[controller]")]
     public class BidController : Controller
@@ -22,8 +22,6 @@ namespace EAuction.API.Controllers
             
             _bidService = bidService;   
         }
-
-
 
         /// <summary>
         /// Update Existing Bid
@@ -53,21 +51,6 @@ namespace EAuction.API.Controllers
                 return NotFound(ex.Message);
             }           
         }
-
-        /// <summary>
-        /// Show all bid
-        /// </summary>
-        /// <param name="productId"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("/show-bids/{productId}")]
-        public async Task<IActionResult> ShowAllBids(int productId)
-        {
-            if (productId == 0)
-            {
-                return BadRequest();
-            }
-            return Ok(await _bidService.ShowAllBids(productId));
-        }
+        
     }
 }

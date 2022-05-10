@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace EAuction.API.Migrations
+namespace EAuction.API.Write.Migrations
 {
     [DbContext(typeof(DomainModelSqliteContext))]
     partial class DomainModelSqliteContextModelSnapshot : ModelSnapshot
@@ -16,7 +16,7 @@ namespace EAuction.API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.9");
 
-            modelBuilder.Entity("DomainModel.Model.BuyerInfo", b =>
+            modelBuilder.Entity("EAuction.Domain.BuyerInfo", b =>
                 {
                     b.Property<int>("BuyerId")
                         .ValueGeneratedOnAdd()

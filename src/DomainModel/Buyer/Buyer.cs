@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EAuction.Domain.Buyer
 {
-    public class Buyer
+    public class BuyerInfo
     {
         [Key]
         public int BuyerId { get; set; }

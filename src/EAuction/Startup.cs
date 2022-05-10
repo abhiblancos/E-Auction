@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
-using EAuction.Service.Bids;
 using EAuction.Service.ProductService;
 using EAuction.Service.BuyerService;
 using EAuction.Service.SellerService;
@@ -14,7 +13,7 @@ using System.IO;
 using System.Reflection;
 using System;
 
-namespace EAuction.API
+namespace EAuction.API.Write
 {
     public class Startup
     {
@@ -33,7 +32,7 @@ namespace EAuction.API
             services.AddDbContext<EAuction.DataAccessSqlite.Provider.DomainModelSqliteContext>(options =>
                 options.UseSqlite(
                     sqlConnectionString,
-                    b => b.MigrationsAssembly("EAuction.API")
+                    b => b.MigrationsAssembly("EAuction.API.Write.Migrations")
                 )
             );
 
@@ -75,10 +74,10 @@ namespace EAuction.API
 
             //services.AddScoped<IDataAccessProvider, DataAccessMySqlProvider.DataAccessMySqlProvider>();
 
-            services.AddScoped<BidService>();
-            services.AddScoped<ProductServ>();
-            services.AddScoped<BuyerServ>();
-            services.AddScoped<SellerService>();
+            //services.AddTransient<BidService>();
+            //services.AddTransient<ProductServ>();
+            //services.AddTransient<BuyerServ>();
+            //services.AddTransient<SellerService>();
 
             services.AddControllers()
               .AddNewtonsoftJson(options =>
