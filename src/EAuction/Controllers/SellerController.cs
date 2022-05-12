@@ -39,8 +39,17 @@ namespace EAuction.API.Write.Controllers
             var result = await _sellerService.AddSeller(value);
 
             return Created("/api/DataEventRecord", result);
-        }            
-  
+        }
 
+        /// <summary>
+        /// Get All seller information
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("/getAllSeller")]
+        public async Task<IActionResult> GetAllSeller()
+        {
+            return Ok(await _sellerService.GetAllSeller());
+        }
     }
 }

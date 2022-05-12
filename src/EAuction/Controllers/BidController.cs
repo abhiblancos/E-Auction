@@ -23,6 +23,17 @@ namespace EAuction.API.Write.Controllers
             _bidService = bidService;   
         }
 
+        [HttpGet]
+        [Route("/show-bids/{productId}")]
+        public async Task<IActionResult> ShowAllBids(int productId)
+        {
+            if (productId == 0)
+            {
+                return BadRequest();
+            }
+            return Ok(await _bidService.ShowAllBids(productId));
+        }
+
         /// <summary>
         /// Update Existing Bid
         /// </summary>

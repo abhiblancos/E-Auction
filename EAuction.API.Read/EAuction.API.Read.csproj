@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EAuction.Service.MongoDb\EAuction.Service.MongoDb.csproj" />
     <ProjectReference Include="..\EAuction.Service\EAuction.Service.csproj" />
     <ProjectReference Include="..\src\DataAccessSqliteProvider\EAuction.DataAccessSqliteProvider.csproj" />
   </ItemGroup>

@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "EAuction.API.Write": {
+    "EAuction.API.Read": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

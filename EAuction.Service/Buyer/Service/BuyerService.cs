@@ -62,7 +62,7 @@ namespace EAuction.Service.BuyerService
         {
             var data = await _dataAccessProvider.GetAllBuyer();
 
-            var results = data.Select(der => new Domain.Buyer.BuyerInfo
+            var results = data.Select(der => new BuyerModels.BuyerInfo
             {
                 Address = der.Address,
                 BidAmount = der.BidAmount,
@@ -78,7 +78,7 @@ namespace EAuction.Service.BuyerService
                 BuyerId = der.BuyerId
             });
 
-            return (IEnumerable<BuyerModels.BuyerInfo>)results;
+            return results;
         }
     }
 }

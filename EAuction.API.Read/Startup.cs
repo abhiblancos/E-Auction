@@ -13,6 +13,9 @@ using System.IO;
 using System.Reflection;
 using System;
 using Microsoft.EntityFrameworkCore;
+using EAuction.Service.MongoDb.Interface;
+using Microsoft.Extensions.Options;
+using EAuction.Service.MongoDb;
 
 namespace EAuction.API.Read
 {
@@ -30,18 +33,18 @@ namespace EAuction.API.Read
         {
             // services.AddRazorPages();
 
-            var sqlConnectionString = Configuration.GetConnectionString("DataAccessSqliteProvider");
+            //var sqlConnectionString = Configuration.GetConnectionString("DataAccessSqliteProvider");
 
-            services.AddDbContext<EAuction.DataAccessSqlite.Provider.DomainModelSqliteContext>(options =>
-                options.UseSqlite(
-                    sqlConnectionString                   
-                )
-            );
-            services.AddScoped<Service.IDataAccessProvider, EAuction.DataAccessSqlite.Provider.DataAccessSqliteProvider>();
-            services.AddScoped<BidService>();
-            services.AddScoped<ProductServ>();
-            services.AddScoped<BuyerServ>();
-            services.AddScoped<SellerService>();
+            //services.AddDbContext<EAuction.DataAccessSqlite.Provider.DomainModelSqliteContext>(options =>
+            //    options.UseSqlite(
+            //        sqlConnectionString                   
+            //    )
+            //);
+            //services.AddScoped<Service.IDataAccessProvider, EAuction.DataAccessSqlite.Provider.DataAccessSqliteProvider>();
+            //services.AddScoped<BidService>();
+            //services.AddScoped<ProductServ>();
+            //services.AddScoped<BuyerServ>();
+            //services.AddScoped<SellerService>();
 
             services.AddControllers()
               .AddNewtonsoftJson(options =>
@@ -61,6 +64,13 @@ namespace EAuction.API.Read
                 var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
+
+            services.Configure<MongoDbSettings>(Configuration.GetSection("MongoDbSettings"));
+
+            services.AddSingleton<IMongoDbSettings>(serviceProvider =>
+                serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
+
+            services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

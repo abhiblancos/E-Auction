@@ -38,7 +38,18 @@ namespace EAuction.API.Write.Controllers
 
             return Created("/api/DataEventRecord", result);
         }
-      
+
+        /// <summary>
+        /// Get list of all product
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("/getAllproducts")]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            return Ok(await _productService.GetAllProducts());
+        }
+
         /// <summary>
         /// Delete Product
         /// </summary>

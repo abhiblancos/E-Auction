@@ -32,7 +32,7 @@ namespace EAuction.API.Write
             services.AddDbContext<EAuction.DataAccessSqlite.Provider.DomainModelSqliteContext>(options =>
                 options.UseSqlite(
                     sqlConnectionString,
-                    b => b.MigrationsAssembly("EAuction.API.Write.Migrations")
+                    b => b.MigrationsAssembly("EAuction.API.Write")
                 )
             );
 
@@ -74,10 +74,10 @@ namespace EAuction.API.Write
 
             //services.AddScoped<IDataAccessProvider, DataAccessMySqlProvider.DataAccessMySqlProvider>();
 
-            //services.AddTransient<BidService>();
-            //services.AddTransient<ProductServ>();
-            //services.AddTransient<BuyerServ>();
-            //services.AddTransient<SellerService>();
+            services.AddTransient<BidService>();
+            services.AddTransient<ProductServ>();
+            services.AddTransient<BuyerServ>();
+            services.AddTransient<SellerService>();
 
             services.AddControllers()
               .AddNewtonsoftJson(options =>
