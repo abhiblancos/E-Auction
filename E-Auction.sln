@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{473E7822-72A4-4268-BEE5-17807D09B880}"
 EndProject
@@ -17,13 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.API.Write", "src\E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.Domain", "src\DomainModel\EAuction.Domain.csproj", "{C621779A-DC48-4322-AAC9-A813A7002A42}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.Service", "EAuction.Service\EAuction.Service.csproj", "{A332860F-2387-4FEF-B974-D6A8147D76D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.Service", "src\EAuction.Service\EAuction.Service.csproj", "{A332860F-2387-4FEF-B974-D6A8147D76D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.API.Read", "EAuction.API.Read\EAuction.API.Read.csproj", "{4C02E104-1750-4335-8CCF-9780F6BCD820}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.API.Read", "src\EAuction.API.Read\EAuction.API.Read.csproj", "{4C02E104-1750-4335-8CCF-9780F6BCD820}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAuction.Consumer", "EAuction.Consumer\EAuction.Consumer.csproj", "{AC3231CC-BBB6-43B2-AEBF-7C12784759AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.Consumer", "src\EAuction.Consumer\EAuction.Consumer.csproj", "{AC3231CC-BBB6-43B2-AEBF-7C12784759AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAuction.Service.MongoDb", "EAuction.Service.MongoDb\EAuction.Service.MongoDb.csproj", "{C45C396D-8307-4932-ACAC-BB9135872130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EAuction.Service.MongoDb", "src\EAuction.Service.MongoDb\EAuction.Service.MongoDb.csproj", "{C45C396D-8307-4932-ACAC-BB9135872130}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4207991F-A8B9-4D62-A944-77C5C2873942}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{C45C396D-8307-4932-ACAC-BB9135872130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C45C396D-8307-4932-ACAC-BB9135872130}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C45C396D-8307-4932-ACAC-BB9135872130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4207991F-A8B9-4D62-A944-77C5C2873942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4207991F-A8B9-4D62-A944-77C5C2873942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4207991F-A8B9-4D62-A944-77C5C2873942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4207991F-A8B9-4D62-A944-77C5C2873942}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

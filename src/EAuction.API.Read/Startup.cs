@@ -70,7 +70,7 @@ namespace EAuction.API.Read
             services.AddSingleton<IMongoDbSettings>(serviceProvider =>
                 serviceProvider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 
-            services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
+           services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,7 +87,14 @@ namespace EAuction.API.Read
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            app.UseCors(builder => builder
+           .AllowAnyHeader()
+           .AllowAnyMethod()
+           .SetIsOriginAllowed((host) => true)
+           .AllowCredentials()
+           );
+
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();

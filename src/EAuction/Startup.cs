@@ -30,7 +30,7 @@ namespace EAuction.API.Write
             var sqlConnectionString = Configuration.GetConnectionString("DataAccessSqliteProvider");
 
             services.AddDbContext<EAuction.DataAccessSqlite.Provider.DomainModelSqliteContext>(options =>
-                options.UseSqlite(
+                options.UseSqlServer(
                     sqlConnectionString,
                     b => b.MigrationsAssembly("EAuction.API.Write")
                 )
@@ -90,7 +90,7 @@ namespace EAuction.API.Write
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Title = "E-Auction",
-                    Description = "An ASP.NET Core Web API for managing E-Action.\n Created by: Abhishek Deshmukh and Manish Sharma",
+                    Description = "An ASP.NET Core Web API for managing E-Action.\n Created by: Abhishek J Deshmukh and Manish Sharma",
                     Version = "v1",                    
                     
                 });
@@ -106,8 +106,9 @@ namespace EAuction.API.Write
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
 
+            //app.UseHttpsRedirection();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseRouting();
 

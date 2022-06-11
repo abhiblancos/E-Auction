@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using DomainModel.Model;
+using EAuction.Domain.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessMsSqlServerProvider
